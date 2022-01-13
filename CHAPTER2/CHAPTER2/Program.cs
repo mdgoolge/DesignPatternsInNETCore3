@@ -7,6 +7,8 @@ namespace CHAPTER2
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+
+            Func<int, int, int> div = (int a, int b) => a / b;
         }
     }
 }
