@@ -28,18 +28,45 @@ namespace CHAPTER5
             Console.WriteLine(dd["sherlock"].HouseNumber); // prints "222"
         }
     }
+    public class Person
+    {
+        public readonly string Name;
+        public readonly Address Address;
+        public Person(string name, Address address) {
+            Name = name;
+            Address = address;
+        }
+        public Person(Person other)
+        {
+            Name = other.Name;
+            Address = new Address(other.Address); // uses a copy constructor here
+        }
+    }
     public class Address
     {
         public string StreetName;
-        public int HouseNumber;
+        public int HouseNumber; 
+        
+        
+        public string StreetAddress { get;  set; }
+        public string City { get;  set; }
+        public string Country { get; set; }
         public Address()
         {
 
+        }
+        public Address(Address other)
+        {
+            StreetAddress = other.StreetAddress;
+            City = other.City;
+            Country = other.Country;
         }
         public Address(string streetName, int houseNumber)
         {
             StreetName = streetName;
             HouseNumber = houseNumber;
         }
+
+        
     }
 }
